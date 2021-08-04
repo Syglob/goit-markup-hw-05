@@ -68,11 +68,19 @@
             Эффективные решения <br />
             для вашего бизнеса
           </h1>
-          <button class="button-request data-modal-open" type="button">
+          <button data-modal-open class="button-request" type="button">
             Заказать услугу
           </button>
         </div>
-        <div class="backdrop data-modal"></div>
+        <div data-modal class="backdrop is-hidden">
+          <div class="modal">
+            <button data-modal-close class="modal-close-btn" type="button">
+              <svg class="close-btn-svg" width="18px" height="18px">
+                <use href="./img/svg_img/sprites.svg#icon-close-black"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
       </section>
       <!--section 1-->
       <section class="description">
