@@ -106,7 +106,7 @@ body {
   height: 1px;
   margin: -1px;
 }
-/*==================colors================*/
+/*==================(VAR)================*/
 :root {
   --link-active-color: #2196f3;
   --link-color: #212121;
@@ -119,6 +119,10 @@ body {
   --line-color: #ececec;
   --portfolio-border-color: #eeeeee;
   --social-icon-color: #afb1b8;
+  --animation-250ms: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --overlay-bg-color: rgba(33, 150, 243, 0.9);
 }
 
 /*==============main-page==============*/
@@ -155,14 +159,15 @@ body {
   text-align: center;
   letter-spacing: 0.06em;
   margin-top: 33px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-250ms), background-color var(--animation-250ms);
 }
 .button-request:hover,
 .button-request:focus {
   color: var(--link-active-color);
   background-color: var(--button-color);
+  transition: var(--animation-250ms);
 }
+
 .banner {
   background-color: var(--background-color);
   margin-left: auto;
@@ -240,7 +245,7 @@ body {
 /*=============navigation============*/
 .navigation .link {
   color: var(--link-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-250ms);
 }
 .navigation .link:hover,
 .navigation .link:focus {
@@ -274,7 +279,8 @@ body {
   margin-left: 93px;
 }
 /*============mail============*/
-.mail {
+.mail,
+.phone {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -282,7 +288,7 @@ body {
   color: var(--text-color);
   display: flex;
   align-items: center;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-250ms);
 }
 
 .svg-mail {
@@ -303,15 +309,6 @@ body {
 }
 
 /*==========contacts==========*/
-.phone {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  color: var(--text-color);
-  display: flex;
-  align-items: center;
-}
 
 .svg-phone {
   height: 16px;
@@ -334,8 +331,7 @@ body {
 .filter {
   color: var(--link-color);
   padding: 6px 22px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-250ms), background-color var(--animation-250ms);
 }
 
 .filter.current {
@@ -652,15 +648,15 @@ footer {
 .social-link:focus {
   background-color: var(--link-active-color);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .social-link:hover svg,
 .social-link:focus svg {
   fill: var(--white-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .social-link svg {
@@ -704,14 +700,14 @@ footer {
 .clients-link:hover .clients-svg,
 .clients-link:focus .clients-svg {
   fill: var(--link-active-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 .clients-link:hover,
 .clients-link:focus {
   border: 1px solid var(--link-active-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
     0px 2px 1px rgb(0 0 0 / 20%);
@@ -769,7 +765,7 @@ footer {
 .footer-social-link:hover,
 .footer-social-link:focus {
   background-color: var(--link-active-color);
-  transition-duration: 250ms;
+  transition-duration: var(--transition-duration);
 }
 
 /*=============portfolio page==========*/
@@ -793,7 +789,6 @@ footer {
   display: flex;
   flex-wrap: wrap;
   margin-right: -30px;
-  box-sizing: border-box;
 }
 .flex {
   flex-basis: calc(100% / 3 - 30px);
@@ -808,11 +803,10 @@ footer {
 .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  transition-duration: 250ms;
+  transition-duration: var(--transition-duration);
 }
 .portfolio-link {
   display: block;
-  /* border: 1px solid var(--portfolio-border-color); */
 }
 
 .portfolio-overlay {
@@ -825,7 +819,7 @@ footer {
   width: 100%;
   height: 100%;
   bottom: -100%;
-  background-color: rgba(33, 150, 243, 0.9);
+  background-color: var(--overlay-bg-color);
 
   font-weight: 400;
   font-size: 18px;
